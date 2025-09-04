@@ -1,0 +1,25 @@
+[build-system]
+requires = ["scikit-build-core>=0.3.3", "pytest"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "dowker-trajectories"
+version = "0.0.0"
+description="Compute Dowker Persistence for Dynamical Systems Trajectories"
+readme = "README.md"
+authors = [
+  { name = "Author 1", email = "email1@math.edu" },
+]
+requires-python = ">=3.10"
+dependencies = [
+  "pytest>=7.4.0",
+  "gudhi>=3.11.0",
+  "numpy>=2.2.5",
+]
+
+
+[tool.scikit-build]
+wheel.expand-macos-universal-tags = true
+
+[tool.cibuildwheel]
+before-all = "uname -a"
