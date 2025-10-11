@@ -6,14 +6,15 @@ class Trajectory(object):
             
     #Inputs: ts - a 2D np array of any shape. Probably a time series. 
     # b - the number of bins in each dimension
+    # thicken - a positive small number to thicken the range of the bins by. This prevents truncation/rounding issues.
     #Output: bins - A dictionary of arrays that contains the boundaries of the bins in each dimension
-    def set_bins(self,b):
+    def set_bins(self,b, thicken=1e-6):
         self.b = b
         d,n = self.ts.shape
         bins = {}
         for i in range(d):
-            top = max(self.ts[i,:])
-            bot = min(self.ts[i,:])
+            top = max(self.ts[i,:])+thicken
+            bot = min(self.ts[i,:])-thicken
             step = (top - bot)/b
             ibins = []
             for j in range(b+1):
