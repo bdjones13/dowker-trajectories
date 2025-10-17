@@ -1,2 +1,2 @@
 from .dowker_trajectories import *
-_all__ = ["Data","digraphs","trajectories"]
+_all__ = ["Data","Digraphs","Trajectories"]

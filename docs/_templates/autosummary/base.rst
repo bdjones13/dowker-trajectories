@@ -10,7 +10,7 @@
 property
 {% endif %}
 
-.. auto{{ objtype }}:: {{ fullname | replace("petls.", "petls::") }}
+.. auto{{ objtype }}:: {{ fullname | replace("dowker_trajectories.", "dowker_trajectories::") }}
 
 {# In the fullname (e.g. `numpy.ma.MaskedArray.methodname`), the module name
 is ambiguous. Using a `::` separator (e.g. `numpy::ma.MaskedArray.methodname`)

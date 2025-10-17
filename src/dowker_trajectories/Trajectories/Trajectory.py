@@ -1,14 +1,33 @@
 import numpy as np
 
 class Trajectory(object):
+    """
+    Trajectory placeholder docs
+    """
+
+
     def __init__(self, ts):
+        """
+        Initialize Trajectory object.
+
+        Parameters
+        ----------
+        ts : ndarray of shape (d, n)
+        """
         self.ts = ts
             
-    #Inputs: ts - a 2D np array of any shape. Probably a time series. 
-    # b - the number of bins in each dimension
-    # thicken - a positive small number to thicken the range of the bins by. This prevents truncation/rounding issues.
-    #Output: bins - A dictionary of arrays that contains the boundaries of the bins in each dimension
     def set_bins(self,b, thicken=1e-6):
+        """
+        Set the bins A dictionary of arrays that contains the boundaries of the bins in each dimension
+    
+        Parameters
+        ----------
+        b : int
+            Number of bins in each dimension
+        thicken : float, optional
+            Small positive number to thicken the range of the bins, by default 1e-6
+    
+        """
         self.b = b
         d,n = self.ts.shape
         bins = {}
@@ -23,13 +42,13 @@ class Trajectory(object):
         self.bins = bins
         # return bins
 
-    #Inputs: ts - time series
-    #bins - the partition of each dimension into its bins
-    #b - number of bins in each dimension
-
-    #Output: binseq - a 1D array the length of ts that lists which bin each entry in the time series is in
 
     def bin_sequence(self):
+        """
+        Set self.binseq  a 1D array the length of ts that lists which bin each entry in the time series is in
+        
+
+        """
         d,n = self.ts.shape
         bin_seq = np.zeros((n))
         for i in range(n):
@@ -44,12 +63,17 @@ class Trajectory(object):
                         k = k + 1 
             bin_seq[i] = bin_n
         self.bin_seq = bin_seq
-        # return binseq
-
-    #inputs: bin-seq - the bin sequence of the time series
-    #outputs: A - the adjacency matrix
-    # vertices - the list of vertices, enumerated as bin numbers
+        
     def adjacency(self, prob = False):
+        """
+        Get adjacency matrix, vertices, and number of visits by the time series
+
+        Parameters
+        ----------
+        prob : bool, optional
+            Whether to normalize the adjacency matrix to probabilities, by default False        
+        """
+
         vertices, counts = np.unique(self.bin_seq, return_counts=True)
         order = len(vertices)
         A = np.zeros((order,order))
@@ -60,6 +84,10 @@ class Trajectory(object):
         return A, vertices, counts
 
     def bin_centers(self):
+        """
+        Get center coordinates of each bin
+        
+        """
         bin_cent = np.zeros((self.b**3,3))
         for k in range(self.b):
             for j in range(self.b):

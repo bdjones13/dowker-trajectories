@@ -52,18 +52,13 @@ class Digraph(nx.DiGraph):
 
         Parameters
         ----------
-        method : {'unweighted_shortest_path', 'weighted_shortest_path', 'probabilistic'}
-            The distance definition:
-            - 'unweighted_shortest_path': Shortest path length ignoring weights.
-            - 'weighted_shortest_path': Dijkstra shortest path using edge weights.
-            - 'probabilistic': Inverse of edge weights treated as distances
-              (experimental).
+        method : {`unweighted_shortest_path`, `weighted_shortest_path`, `probabilistic`}
 
         Returns
         -------
         D : ndarray of shape (n, n)
-            Distance matrix, where 'D[i, j]' is the distance from node 'i' to
-            node 'j'. Unreachable pairs are assigned a large value (1000).
+            Distance matrix, where `D[i, j]` is the distance from node `i` to
+            node `j`. Unreachable pairs are assigned a large value (1000).
 
         Notes
         -----

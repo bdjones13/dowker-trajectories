@@ -7,7 +7,9 @@
          :toctree:
       {% for item in all_methods %}
         ..  {%- if not item.startswith('_') or item in ['__call__'] %}
-         {{ name }}.{{ item }}
+         {%- if item not in inherited_members %}
+            ~{{ name }}.{{ item }}
+         {%- endif -%}
         ..  {%- endif -%}
       {%- endfor %}
 {% endif %}
