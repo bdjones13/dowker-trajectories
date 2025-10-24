@@ -1,3 +1,4 @@
-Init Doxyfile
-Init make.bat
-Create sources
+Generating the html using Shinx can be done with the following shell commands on linux:
+
+> pip install -r docs_requirements.txt
+> sphinx-build -M html source build
