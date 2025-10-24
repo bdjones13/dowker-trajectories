@@ -19,8 +19,12 @@ The authors thank Davide Faranda, Théo Lacombe, Nina Otter, and Kristian Stromm
    :hidden:
    :titlesonly:
 
-    Digraphs/index
-    Trajectories/index
+   installation
+   Trajectory
+   Digraph
+   CycleGraph
+   DowkerComplex
+   
 
 Citation
 ********

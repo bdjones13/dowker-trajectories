@@ -2,7 +2,18 @@ import numpy as np
 
 class Trajectory(object):
     """
-    Trajectory placeholder docs
+    A trajectory of a dynamical system
+
+    Attributes
+    ----------
+    ts : ndarray of shape (d, n)
+        Time series data with 'd' dimensions and 'n' time steps
+    b : int
+        Number of bins in each dimension
+    bins : dict
+        Dictionary containing bin boundaries for each dimension
+    bin_seq : ndarray of shape (n,)
+        Sequence of bin indices corresponding to each time step
     """
 
 

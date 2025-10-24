@@ -4,11 +4,11 @@ import networkx as nx
 
 class Digraph(nx.DiGraph):
     """
-    A directed graph wrapper around networkx.DiGraph with additional
-    functionality for storing vertex metadata, computing distance matrices,
-    and weighting edges.
+    A wrapper for networkx.DiGraph with 
+    custom edge weighting and distance matrix methods.
 
     Each node stores two attributes:
+    
     - bin: the corresponding bin/vertex label
     - count: an integer count associated with that bin
     """

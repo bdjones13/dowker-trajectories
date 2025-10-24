@@ -25,7 +25,7 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_design',
     'sphinx.ext.autosummary',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
 ]
 
 templates_path = ['_templates']
@@ -48,5 +48,3 @@ napoleon_google_docstring = False
 napoleon_numpy_docstring = True
 napoleon_use_param = True
 napoleon_use_rtype = True
-
-
